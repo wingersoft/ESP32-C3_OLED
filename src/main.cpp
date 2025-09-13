@@ -1,22 +1,3 @@
-# ESP32-C3_OLED
-![AHT20_BMP280 logo](https://github.com/peff74/ESP32-C3_OLED/blob/main/ESP32-C3_oled.jpg)
-
-- The ESP32-C3 OLED is a very practical and cheap ESP32-C3 Supermini with 0.42 Inch OLED Display.
-- It is sold on all known platforms.
-- Most dealers provide no technical data, which sometimes makes it difficult to get it up and running...
-- The OLED display requires a workaround to function correctly because there is no dedicated 72x40 constructor in the U8g2 library.
-- This is a PlatformIO project.
-
-## Technical specs
-- SDA is D6
-- SCL is D5
-- The blue LED is at pin 8
-- Resolution is 72x40
-- To see the serial output, you have to enable USB CDC. In PlatformIO, you can do this by adding `build_flags = -D ARDUINO_USB_CDC_ON_BOOT=1` to your `platformio.ini` file.
-
-## Code using U8g2
-
-```cpp
 // Include the U8g2 library for OLED display
 #include <U8g2lib.h>
 
@@ -86,7 +67,7 @@ void loop(void)
     // Toggle the blue LED
     digitalWrite(BLUE_LED, !digitalRead(BLUE_LED));
     // Display the uptime on the OLED
-    display_oled(counter++);
+    display_oled(counter);
     // Print the uptime to the serial monitor
     Serial.print("Uptime = ");
     Serial.println(counter);
@@ -95,13 +76,3 @@ void loop(void)
     // Wait for 1 second
     delay(1000);
 }
-```
-
-## How to use with PlatformIO
-1. Install [Visual Studio Code](https://code.visualstudio.com/)
-2. Install the [PlatformIO IDE extension](https://platformio.org/platformio-ide)
-3. Clone this repository
-4. Open the repository in Visual Studio Code
-5. Build and upload to the ESP32-C3
-
-![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fpeff74%2FESP32-C3_OLED&label=Hits&icon=github&color=%23198754&message=&style=flat&tz=UTC)
